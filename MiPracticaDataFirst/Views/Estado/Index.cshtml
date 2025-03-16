@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MiPracticaDataFirst.Models.Estado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear Estado</a>
+</p>
+<div class="card shadow-lg rounded-2">
+<div class="card-header text-black">
+    <h4>Lista de Estado</h4>
+</div>
+
+<div class="card-body">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Editar</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning">Detalles</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</div>
